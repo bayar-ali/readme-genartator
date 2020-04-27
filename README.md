@@ -1,26 +1,26 @@
  
-    my name is 
-    
-    bbb
 
-    --------------------------------------------
-
-      my git hub  
+      Your Github user name is  
       
-      b 
+      a 
+
+
+      Your project Name
+    
+      a
 
       --------------------------------------------
 
-      my project description b
+     Your project description a
 
-      The license of your repo bb
+      The license of your repo a
 
-      The command to install to run dependences 
+      The command to install to run dependences a
 
       the command to run tests undefined
 
-      The Users need to know about the repo is b
+      What you need to know to know about the repo is a
 
 
-      The users need to contribute to the repo: 
+      The users need to contribute to the repo: a
     

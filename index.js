@@ -53,19 +53,19 @@ function promptUser() {
 
 function generateReadme(answers) {
     return ` 
-    my name is 
-    
-    ${answers.name}
 
-    --------------------------------------------
-
-      my git hub  
+      Your Github user name is  
       
       ${answers.github} 
 
+
+      Your project Name
+    
+      ${answers.name}
+
       --------------------------------------------
 
-      my project description ${answers.description}
+     Your project description ${answers.description}
 
       The license of your repo ${answers.license}
 
@@ -73,7 +73,7 @@ function generateReadme(answers) {
 
       the command to run tests ${answers.command}
 
-      The Users need to know about the repo is ${answers.usingrepo}
+      What you need to know to know about the repo is ${answers.usingrepo}
 
 
       The users need to contribute to the repo: ${answers.contribute}
