@@ -25,7 +25,7 @@ function promptUser() {
           {
             type: "input",
             name: "license",
-            message: "what kinda of license should your repo have"
+            message: "What kinda of license should your repo have?"
           },
           {
             type: "input",
@@ -58,25 +58,50 @@ function generateReadme(answers) {
       
       ${answers.github} 
 
+      --------------------------------------------
 
-      Your project Name
+
+      Your project Name is 
     
       ${answers.name}
 
       --------------------------------------------
 
-     Your project description ${answers.description}
+     Your project description
+     
+     ${answers.description}
 
-      The license of your repo ${answers.license}
+     ---------------------------------------------
 
-      The command to install to run dependences ${answers.install}
+      The license of your repo 
+      
+      ${answers.license}
 
-      the command to run tests ${answers.command}
+      --------------------------------------------
 
-      What you need to know to know about the repo is ${answers.usingrepo}
+      The command to install to run dependences 
+
+      ${answers.install}
+      
+      --------------------------------------------
+
+      the command to run tests 
+      
+      ${answers.command}
+
+      --------------------------------------------
+
+      What you need to know to about the repo 
+      
+      ${answers.usingrepo}
 
 
-      The users need to contribute to the repo: ${answers.contribute}
+      ------------------------------------------------
+
+
+      The users need to contribute to the repo: 
+      
+      ${answers.contribute}
     `
 }
 

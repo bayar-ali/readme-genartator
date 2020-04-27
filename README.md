@@ -4,23 +4,48 @@
       
       a 
 
+      --------------------------------------------
 
-      Your project Name
+
+      Your project Name is 
     
       a
 
       --------------------------------------------
 
-     Your project description a
+     Your project description
+     
+     a
 
-      The license of your repo a
+     ---------------------------------------------
 
-      The command to install to run dependences a
+      The license of your repo 
+      
+      a
 
-      the command to run tests undefined
+      --------------------------------------------
 
-      What you need to know to know about the repo is a
+      The command to install to run dependences 
+
+      a
+      
+      --------------------------------------------
+
+      the command to run tests 
+      
+      undefined
+
+      --------------------------------------------
+
+      What you need to know to about the repo 
+      
+      a
 
 
-      The users need to contribute to the repo: a
+      ------------------------------------------------
+
+
+      The users need to contribute to the repo: 
+      
+      a
     
