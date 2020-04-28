@@ -1,51 +1,78 @@
  
 
-      Your Github user name is  
+  Your project Name is 
+  # weather app
+            
+            
+            ## Table of content
+            * [License](#license)
+            * [Installation](#installation)
+            * [Testing](#testing)
+            * [Need To Know](#needtoknow)
+            * [Contributions](#contributions)
+           
+            
+           
+           
+           
+           
+
+       Your Github user name is  
       
-      a 
+     bayar-ali 
 
       --------------------------------------------
 
-
-      Your project Name is 
-    
-      a
-
-      --------------------------------------------
-
+      
+      ##Description
      Your project description
      
-     a
+     my story is nice
 
      ---------------------------------------------
-
+     ##License
       The license of your repo 
       
-      a
+      any
 
       --------------------------------------------
+      ##Installation
+      To install necessary dependencies run the following command:
+     
 
-      The command to install to run dependences 
-
-      a
+     npm i
       
       --------------------------------------------
-
-      the command to run tests 
+      #testing
+     
+      To run tests, run the following command:
       
-      undefined
+       undefined
 
       --------------------------------------------
-
+      ##Need to know
       What you need to know to about the repo 
       
-      a
+      to code
 
 
       ------------------------------------------------
-
+      ##Contributions
 
       The users need to contribute to the repo: 
       
-      a
+      time 
+
+      ​
+    
+​
+    #### Email
+​
+    
+​
+    #### Badge
+​
+    Badge: undefined
+
+
     
