@@ -1,0 +1,26 @@
+{
+  "name": "readme-genartator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "generate": "^0.14.0",
+    "inquirer": "^7.1.0",
+    "util": "^0.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bayar-ali/readme-genartator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bayar-ali/readme-genartator/issues"
+  },
+  "homepage": "https://github.com/bayar-ali/readme-genartator#readme"
+}

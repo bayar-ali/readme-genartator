@@ -55,10 +55,14 @@ function userPrompt() {
 
 function genReadMe(results) {
     return`
+    
+    The name of your project
         # ${results.project}
         
         
         ## Description
+       the desription about your Project
+
         
         ${results.description}
         
@@ -118,19 +122,13 @@ userPrompt()
                 
                 let data = res.data.email
                 let img = res.data.avatar_url
-                   
-                fs.appendFile("README2.md", `${data}\n` , (err) =>{
-                    if(err) throw err;
-                })
-                fs.appendFile("README2.md", `<img src="${img}">`, (err)=>{
-                    if(err) throw err;
-                })
+            
             })
     })
 
     
     .then(function () {
-        console.log("Succesfully written to README2.md")
+        console.log("Succesfully written to README.md")
     })
     .catch((err) => {
         if (err) {
