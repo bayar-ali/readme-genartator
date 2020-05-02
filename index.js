@@ -1,150 +1,141 @@
-const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
 const axios = require("axios");
-
+const inquirer = require("inquirer");
+const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
 
-function promptUser() {
-  return inquirer.prompt([
-    {
-      type: "input",
-      name: "github",
-      message: "Enter your GitHub Username"
+function userPrompt() {
+   
+    return inquirer.prompt([{
+        type: "input",
+        name: "username",
+        message: "What is your github username?"
     },
     {
-      type: "input",
-      name: "name",
-      message: "what is your project name?"
+        type: "input",
+        name: "project",
+        message: "What is your Project Name?"
     },
     {
-      type: "input",
-      name: "description",
-      message: "please write a short description of your project?"
+        type: "input",
+        name: "description",
+        message: "Please write a brief desription about your Project"
     },
     {
-      type: "input",
-      name: "license",
-      message: "What kinda of license should your repo have?"
+        type: "list",
+        name: "license",
+        message: "What kind of licensing will your project have?",
+        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD3', 'None']
     },
     {
-      type: "input",
-      name: "install",
-      message: "what command should be installed to run dependences?"
+        type: "input",
+        name: "installDependencies",
+        message: "What command needs to be run to install dependencies?"
     },
     {
-      type: "input",
-      name: "commands",
-      message: "what command should be run to run tests?"
+        type: "input",
+        name: "testing",
+        message: "What command needs to be run for testing?"
     },
     {
-      type: "input",
-      name: "usingrepo",
-      message: "What does the user need to know about Using the Repo?"
+        type: "input",
+        name: "needToKnow",
+        message: "What does the user need to know about using this repository?"
     },
     {
-      type: "input",
-      name: "contribute",
-      message: "what does the user need to know about contributing to the repo?"
+        type: "input",
+        name: "contributing",
+        message: "What does the user need to know about contributing to this repository?"
     },
-
-  ])
+        
+    ])
 }
 
-function generateReadme(answers) {
-  return (` 
-
-  Your project Name is 
-  # ${answers.name}
-            
-            
-            ## Table of content
-            * [License](#license)
-            * [Installation](#installation)
-            * [Testing](#testing)
-            * [Need To Know](#needtoknow)
-            * [Contributions](#contributions)
-           
-            
-           
-           
-           
-           
-
-       Your Github user name is  
-      
-     ${answers.github} 
-
-      --------------------------------------------
-
-      
-      ##Description
-     Your project description
-     
-     ${answers.description}
-
-     ---------------------------------------------
-     ##License
-      The license of your repo 
-      
-      ${answers.license}
-
-      --------------------------------------------
-      ##Installation
-      To install necessary dependencies run the following command:
-     
-
-     ${answers.install}
-      
-      --------------------------------------------
-      #testing
-     
-      To run tests, run the following command:
-      
-       ${answers.command}
-
-      --------------------------------------------
-      ##Need to know
-      What you need to know to about the repo 
-      
-      ${answers.usingrepo}
 
 
-      ------------------------------------------------
-      ##Contributions
-
-      The users need to contribute to the repo: 
-      
-      ${answers.contribute} 
-
-      ​
-    ${answers.picture === "Yes" ? `<img>![profile_image](${answers.avatar})</img>` : ""}
-​
-    #### Email
-​
-    ${answers.email === "Yes" ? `${answers.email}` : ""}
-​
-    #### Badge
-​
-    Badge: ${answers.badge}
-
-
+function genReadMe(results) {
+    return`
+        # ${results.project}
+        
+        
+        ## Description
+        
+        ${results.description}
+        
+        ## Table
+        
+        * [License](#license)
+        * [Installation](#installation)
+        
+        * [Testing](#testing)
+        * [Need To Know](#needtoknow)
+        * [Contributions](#contributions)
+        
+        * [Questions](#questions)
+        
+        ## License
+        
+        ${results.choices}
+        ## Installation
+        
+        To install necessary dependencies run the following command:
+        
+        ${results.installDependencies}
+        
+        ## Testing
+         
+        To run tests, run the following command:
+        ${results.testing}
+        ## Need to Know
+        ${results.needToKnow}
+        ## Contributions
+        
+        ${results.contributing}
+        
     `
-  )
 }
 
+userPrompt()
 
-promptUser()
+    .then((results) => {
+        
+        const readME = genReadMe(results)
+
+        writeFileAsync("README.md", readME)
+
+        return results.username
+    })
+    .then(function(username){
+        const url = `https://api.github.com/users/${username}`
+        
+        axios
+            .get(url)
+            .then(function (res){
+                
+                console.log(res.data.email)
+                
+                console.log(res.data.avatar_url)
+                
+                let data = res.data.email
+                let img = res.data.avatar_url
+                   
+                fs.appendFile("README2.md", `${data}\n` , (err) =>{
+                    if(err) throw err;
+                })
+                fs.appendFile("README2.md", `<img src="${img}">`, (err)=>{
+                    if(err) throw err;
+                })
+            })
+    })
+
+    
+    .then(function () {
+        console.log("Succesfully written to README2.md")
+    })
+    .catch((err) => {
+        if (err) {
+            console.log(err)
+        }
+    })
 
 
-  .then((answers) => {
-    const readMe = generateReadme(answers);
-
-    return writeFileAsync("README.MD", readMe)
-  })
-  .then(() => {
-    console.log("successully wrote to README.MD");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
